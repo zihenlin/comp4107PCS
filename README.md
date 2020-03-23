@@ -27,5 +27,7 @@ Javadoc (3%)
 - Use javadoc function to document system for at least one of the emulators
 - Reference: https://www.geeksforgeeks.org/what-is-javadoc-tool-and-how-to-use-it/
 
-
-
+## Dependencies
+- JavaFX
+1.Download jar files from https://gluonhq.com/products/javafx/.
+2.Navigate to "Project Structure->Modules->Dependencies tab" and add the jar files as module dependencies.
