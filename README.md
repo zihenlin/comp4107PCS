@@ -28,6 +28,7 @@ Javadoc (3%)
 - Reference: https://www.geeksforgeeks.org/what-is-javadoc-tool-and-how-to-use-it/
 
 ## Dependencies
-- JavaFX
-1.Download jar files from https://gluonhq.com/products/javafx/.
-2.Navigate to "Project Structure->Modules->Dependencies tab" and add the jar files as module dependencies.
+JavaFX
+- Download jar files from https://gluonhq.com/products/javafx/.
+- Navigate to "Project Structure->Modules->Dependencies tab" and add the jar files as module dependencies.
+- Reference: https://docs.oracle.com/javafx/2/get_started/fxml_tutorial.htm
