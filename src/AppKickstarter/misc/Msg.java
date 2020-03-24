@@ -95,5 +95,8 @@ public class Msg {
 	/** Toggling Gate Emulator AutoOpen */	GateEmulatorAutoOpenToggle,
 	/** Toggling Gate Emulator AutoClose */	GateEmulatorAutoCloseToggle,
 	/** Toggling Gate Emulator AutoPoll */	GateEmulatorAutoPollToggle,
+
+    /** Toggling Sensor */	SensorSignal,
+    /** Toggling Sensor Emulator AutoPoll */ SensorEmulatorAutoPollToggle,
     } // Type
 } // Msg

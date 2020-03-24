@@ -51,7 +51,8 @@ public class GateEmulator extends GateHandler {
 	Parent root;
 	myStage = new Stage();
 	FXMLLoader loader = new FXMLLoader();
-	String fxmlName = "GateEmulator.fxml";
+	String fxmlName =
+			"GateEmulator.fxml";
 	loader.setLocation(GateEmulator.class.getResource(fxmlName));
 	root = loader.load();
 	gateEmulatorController = (GateEmulatorController) loader.getController();

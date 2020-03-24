@@ -4,6 +4,7 @@ import AppKickstarter.AppKickstarter;
 import AppKickstarter.misc.Msg;
 import AppKickstarter.timer.Timer;
 import PCS.GateHandler.GateHandler;
+import PCS.SensorHandler.Emulator.SensorHandler;
 import PCS.PCSCore.PCSCore;
 import javafx.application.Platform;
 
@@ -14,6 +15,7 @@ public class PCSStarter extends AppKickstarter {
     protected Timer timer;
     protected PCSCore pcsCore;
     protected GateHandler gateHandler;
+    protected SensorHandler sensorHandler;
 
 
     //------------------------------------------------------------
@@ -51,6 +53,7 @@ public class PCSStarter extends AppKickstarter {
 	    timer = new Timer("timer", this);
 	    pcsCore = new PCSCore("PCSCore", this);
 	    gateHandler = new GateHandler("GateHandler", this);
+	    sensorHandler = new SensorHandler("SensorHandler", this);
 	} catch (Exception e) {
 	    System.out.println("AppKickstarter: startApp failed");
 	    e.printStackTrace();
@@ -61,6 +64,7 @@ public class PCSStarter extends AppKickstarter {
 	new Thread(timer).start();
 	new Thread(pcsCore).start();
 	new Thread(gateHandler).start();
+	new Thread(sensorHandler).start();
     } // startHandlers
 
 
@@ -74,5 +78,6 @@ public class PCSStarter extends AppKickstarter {
 	pcsCore.getMBox().send(new Msg(id, null, Msg.Type.Terminate, "Terminate now!"));
 	gateHandler.getMBox().send(new Msg(id, null, Msg.Type.Terminate, "Terminate now!"));
 	timer.getMBox().send(new Msg(id, null, Msg.Type.Terminate, "Terminate now!"));
+	sensorHandler.getMBox().send(new Msg(id, null, Msg.Type.Terminate, "Terminate now!"));
     } // stopApp
 } // PCS.PCSStarter
