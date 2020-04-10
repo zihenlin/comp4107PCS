@@ -12,7 +12,7 @@ import javafx.scene.control.TextArea;
 
 import java.util.logging.Logger;
 
-public class TicketCollectorController {
+public class TicketCollectorEmulatorController {
   private String id;
   private AppKickstarter appKickstarter;
   private Logger log;
@@ -22,9 +22,9 @@ public class TicketCollectorController {
   private MBox ticketCollectorMBox;
 //  public TextArea gateTextArea;
   public TextArea ticketCollectorTextArea;
-  public Button autoOpenButton;
-  public Button autoCloseButton;
-  public Button autoPollButton;
+//  public Button autoOpenButton;
+//  public Button autoCloseButton;
+//  public Button autoPollButton;
   private int lineNo = 0;
 
 
