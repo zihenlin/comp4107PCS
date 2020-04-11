@@ -358,6 +358,11 @@ public class TicketCollectorEmulator extends TicketCollectorHandler {
       case TicketCollectorStopAlarmRequest:
         handleTicketCollectorStopAlarmRequest();
         break;
+
+      case TicketCollectorButtonPressed:
+        sendTicketCollectorButtonPressedSignal();
+        handleTicketCollectorButtonPressed();
+        break;
 //
 //      case GateEmulatorAutoOpenToggle:
 //        handleGateEmulatorAutoOpenToggle();
@@ -398,6 +403,15 @@ public class TicketCollectorEmulator extends TicketCollectorHandler {
 //      Timer.setTimer(id, mbox, gateOpenTime, GateOpenTimerID);
 //    }
   } // sendGateOpenSignal
+
+  //sendTicketCollectorButtonPressedSignal
+  protected void sendTicketCollectorButtonPressedSignal() {
+    logFine("Button Pressed!!!");
+//    if (autoOpen) {
+//      logFine("Gate open timer started.");
+//      Timer.setTimer(id, mbox, gateOpenTime, GateOpenTimerID);
+//    }
+  } // sendTicketCollectorButtonPressedSignal
 //
 //
 //  //------------------------------------------------------------

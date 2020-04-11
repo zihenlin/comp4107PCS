@@ -103,7 +103,8 @@ public class Msg {
       /** TicketCollector alarm  */       TicketCollectorAlarmRequest,
       /** TicketCollector stop alarm  */  TicketCollectorStopAlarmRequest,
       /** Ticket valid Positive Ack  */   TicketValidPositiveAck,
-      /** Ticket valid Positive Ack  */   TicketInValidNegativeAck,
+      /** Ticket invalid negative Ack  */   TicketInValidNegativeAck,
+      /** TicketCollector Button pressed  */   TicketCollectorButtonPressed,
 
     } // Type
 } // Msg

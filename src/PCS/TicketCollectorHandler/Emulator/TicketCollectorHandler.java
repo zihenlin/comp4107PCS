@@ -311,6 +311,7 @@ public class TicketCollectorHandler extends AppThread {
     switch (msg.getType()) {
       case TicketValidPositiveAck:          handleTicketValidPositiveAck();       break;
       case TicketInValidNegativeAck:        handleTicketInValidNegativeAck();     break;
+      //case TicketCollectorButtonPressed:    handleTicketCollectorButtonPressed(); break;
       //case TicketCollectorAlarmRequest:   handleTicketCollectorAlarmRequest();  break;
 //      case GateOpenRequest:  handleGateOpenRequest();  break;
 //      case GateCloseRequest: handleGateCloseRequest(); break;
@@ -383,6 +384,14 @@ public class TicketCollectorHandler extends AppThread {
     log.info(id + ": send ticket collector alarm request");
     ticketCollectorMBox.send(new Msg(id, null, Msg.Type.TicketCollectorAlarmRequest, "TicketCollectorAlarmReq"));
   } // handleTicketInValidNegativeAck
+
+  //handleTicketCollectorButtonPressed
+  protected final void handleTicketCollectorButtonPressed() {
+    log.info(id + ": ticketCollector button pressed signal received");
+    log.info(id + ": send ticketCollector button pressed signal to PCSCore");
+//    ticketCollectorMBox.send(new Msg(id, null, Msg.Type.TicketCollectorAlarmRequest, "TicketCollectorAlarmReq"));
+    pcsCore.send(new Msg(id, null, Msg.Type.TicketCollectorButtonPressed, "TicketCollectorButtonPressed"));
+  } // handleTicketCollectorButtonPressed
 
 //
 //

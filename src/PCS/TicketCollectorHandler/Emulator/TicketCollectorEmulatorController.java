@@ -205,7 +205,10 @@ public class TicketCollectorEmulatorController {
 //        appendTextArea("Send poll request.");
 //        gateMBox.send(new Msg(id, null, Msg.Type.Poll, ""));
 //        break;
-//
+      case "staff press":
+        ticketCollectorMBox.send(new Msg(id, null, Msg.Type.TicketCollectorButtonPressed, "TicketCollectorButtonPressed"));
+        break;
+
 //      case "Poll ACK":
 //        appendTextArea("Send poll ack.");
 //        gateMBox.send(new Msg(id, null, Msg.Type.PollAck, ""));

@@ -63,6 +63,11 @@ public class PCSCore extends AppThread {
           quit = true;
           break;
 
+        case TicketCollectorButtonPressed:
+          log.info(id + ": ticket collector button is pressed");
+          handleTicketCollectorButtonPressed();
+          break;
+
         default:
           log.warning(id + ": unknown message type: [" + msg + "]");
       }
@@ -101,4 +106,10 @@ public class PCSCore extends AppThread {
         break;
     }
   } // handleTimesUp
+  //handleTicketCollectorButtonPressed
+  private void handleTicketCollectorButtonPressed(){
+    gateMBox.send(new Msg(id, mbox, Msg.Type.GateOpenRequest, ""));
+  }
+
+
 } // PCSCore
