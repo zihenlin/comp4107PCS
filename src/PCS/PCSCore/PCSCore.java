@@ -68,6 +68,9 @@ public class PCSCore extends AppThread {
           handleTicketCollectorButtonPressed();
           break;
 
+
+        case TicketValidPositiveAck:
+          log.info(id + ": ticket va");
         default:
           log.warning(id + ": unknown message type: [" + msg + "]");
       }

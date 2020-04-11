@@ -376,6 +376,8 @@ public class TicketCollectorHandler extends AppThread {
   //handleTicketValidPositiveAck
   protected final void handleTicketValidPositiveAck() {
     log.info(id + ": ticket valid positive ack received");
+//    log.info(id + ": send ticket valid posotive ack to PCSCore");
+//    pcsCore.send(new Msg(id, null, Msg.Type.TicketValidPositiveAck, "TicketValidPositiveAck"));
   } // handleTicketValidPositiveAck
 
   //handleTicketInValidNegativeAck

@@ -148,7 +148,7 @@ public class TicketCollectorEmulatorController {
   private Logger log;
   //  private GateEmulator gateEmulator;
   private TicketCollectorEmulator ticketCollectorEmulator;
-  //  private MBox gateMBox;
+  private MBox gateMBox;
   private MBox ticketCollectorMBox;
   //  public TextArea gateTextArea;
   public TextArea ticketCollectorTextArea;
@@ -167,7 +167,7 @@ public class TicketCollectorEmulatorController {
     this.log = log;
 //    this.gateEmulator = gateEmulator;
     this.ticketCollectorEmulator = ticketCollectorEmulator;
-//    this.gateMBox = appKickstarter.getThread("GateHandler").getMBox();
+    this.gateMBox = appKickstarter.getThread("GateHandler").getMBox();
     this.ticketCollectorMBox = appKickstarter.getThread("TicketCollectorHandler").getMBox();
   } // initialize
 
@@ -192,6 +192,7 @@ public class TicketCollectorEmulatorController {
 //        break;
       case "ticket valid":
         ticketCollectorMBox.send(new Msg(id, null, Msg.Type.TicketValidPositiveAck, "TicketValidPositiveAck"));
+        gateMBox.send(new Msg(id, null, Msg.Type.GateOpenRequest, "GateOpenReq"));
         break;
 
 //
