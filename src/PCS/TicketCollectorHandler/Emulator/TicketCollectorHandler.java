@@ -307,6 +307,8 @@ public class TicketCollectorHandler extends AppThread {
     boolean quit = false;
 
     switch (msg.getType()) {
+      case TicketValidPositiveAck:          handleTicketValidPositiveAck();       break;
+      case TicketInValidNegativeAck:        handleTicketInValidNegativeAck();     break;
       //case TicketCollectorAlarmRequest:   handleTicketCollectorAlarmRequest();  break;
 //      case GateOpenRequest:  handleGateOpenRequest();  break;
 //      case GateCloseRequest: handleGateCloseRequest(); break;
@@ -367,6 +369,16 @@ public class TicketCollectorHandler extends AppThread {
       log.fine(id + ": ticketCollector alarm status change: " + oldTicketCollectorStatus + " --> " + ticketCollectorStatus);
     }
   } // handleTicketCollectorStopAlarmRequest
+
+  //handleTicketValidPositiveAck
+  protected final void handleTicketValidPositiveAck() {
+    log.info(id + ": ticket valid positive ack received");
+  } // handleTicketValidPositiveAck
+
+  //handleTicketInValidNegativeAck
+  protected final void handleTicketInValidNegativeAck() {
+    log.info(id + ": ticket invalid negative ack received");
+  } // handleTicketInValidNegativeAck
 
 //
 //
@@ -494,6 +506,12 @@ public class TicketCollectorHandler extends AppThread {
     // fixme: send ticketCollector stop alarm signal to hardware
     log.info(id + ": sending ticketCollector stop alarm signal to hardware.");
   } // sendTicketCollectorStopAlarmSignal
+
+  //sendTicketCollectorPositiveAck
+//  protected void sendTicketCollectorPositiveAck() {
+//    // fixme: send ticketCollector positive ACK to hardware
+//    log.info(id + ": sending ticketCollector stop alarm signal to hardware.");
+//  } // sendTicketCollectorPositiveAck
 
 
 //

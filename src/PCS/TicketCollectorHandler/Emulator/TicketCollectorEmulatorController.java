@@ -190,11 +190,17 @@ public class TicketCollectorEmulatorController {
 //      case "Gate Close Request":
 //        gateMBox.send(new Msg(id, null, Msg.Type.GateCloseRequest, "GateCloseReq"));
 //        break;
+      case "ticket valid":
+        ticketCollectorMBox.send(new Msg(id, null, Msg.Type.TicketValidPositiveAck, "TicketValidPositiveAck"));
+        break;
+
 //
 //      case "Gate Close Reply":
 //        gateMBox.send(new Msg(id, null, Msg.Type.GateCloseReply, "GateCloseReply"));
 //        break;
-//
+      case "ticket invalid":
+        ticketCollectorMBox.send(new Msg(id, null, Msg.Type.TicketInValidNegativeAck, "TicketInValidNegativeAck"));
+        break;
 //      case "Poll Request":
 //        appendTextArea("Send poll request.");
 //        gateMBox.send(new Msg(id, null, Msg.Type.Poll, ""));

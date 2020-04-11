@@ -100,8 +100,10 @@ public class Msg {
     /** Toggling Sensor Emulator AutoPoll */ SensorEmulatorAutoPollToggle,
 
 
-      /** TicketCollector alarm  */ TicketCollectorAlarmRequest,
-      /** TicketCollector alarm  */ TicketCollectorStopAlarmRequest,
+      /** TicketCollector alarm  */       TicketCollectorAlarmRequest,
+      /** TicketCollector stop alarm  */  TicketCollectorStopAlarmRequest,
+      /** Ticket valid Positive Ack  */   TicketValidPositiveAck,
+      /** Ticket valid Positive Ack  */   TicketInValidNegativeAck,
 
     } // Type
 } // Msg
