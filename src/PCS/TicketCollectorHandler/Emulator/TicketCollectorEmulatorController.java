@@ -181,10 +181,11 @@ public class TicketCollectorEmulatorController {
       case "alarm":
         ticketCollectorMBox.send(new Msg(id, null, Msg.Type.TicketCollectorAlarmRequest, "TicketCollectorAlarmReq"));
         break;
-//
-//      case "Gate Open Reply":
-//        gateMBox.send(new Msg(id, null, Msg.Type.GateOpenReply, "GateOpenReply"));
-//        break;
+
+
+      case "stop alarm":
+        ticketCollectorMBox.send(new Msg(id, null, Msg.Type.TicketCollectorStopAlarmRequest, "TicketCollectorStopAlarmReq"));
+        break;
 //
 //      case "Gate Close Request":
 //        gateMBox.send(new Msg(id, null, Msg.Type.GateCloseRequest, "GateCloseReq"));

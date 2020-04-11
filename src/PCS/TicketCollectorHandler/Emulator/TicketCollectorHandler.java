@@ -345,6 +345,29 @@ public class TicketCollectorHandler extends AppThread {
       log.fine(id + ": ticketCollector alarm status change: " + oldTicketCollectorStatus + " --> " + ticketCollectorStatus);
     }
   } // handleGateOpenRequest
+
+//handleTicketCollectorStopAlarmRequest
+  protected final void handleTicketCollectorStopAlarmRequest() {
+    log.info(id + ": TicketCollector stop alarm request received");
+
+    TicketCollectorHandler.TicketCollectorStatus oldTicketCollectorStatus = ticketCollectorStatus;
+    switch (ticketCollectorStatus) {
+      case TicketCollectorAlarming:
+        log.info(id + ": send signal to stop alarming the ticketCollector now.");
+        sendTicketCollectorStopAlarmSignal();
+        ticketCollectorStatus = TicketCollectorStatus.TicketCollectorNotAlarming;
+        break;
+
+      case TicketCollectorNotAlarming:
+        log.warning(id + ": TicketCollector is already stop alarming!!  Ignore request.");
+        break;
+    }
+
+    if (oldTicketCollectorStatus != ticketCollectorStatus) {
+      log.fine(id + ": ticketCollector alarm status change: " + oldTicketCollectorStatus + " --> " + ticketCollectorStatus);
+    }
+  } // handleTicketCollectorStopAlarmRequest
+
 //
 //
 //  //------------------------------------------------------------
@@ -465,6 +488,14 @@ public class TicketCollectorHandler extends AppThread {
     // fixme: send ticketCollector alarm signal to hardware
     log.info(id + ": sending ticketCollector alarm signal to hardware.");
   } // sendTicketCollectorAlarmSignal
+
+  // sendTicketCollectorStopAlarmSignal
+  protected void sendTicketCollectorStopAlarmSignal() {
+    // fixme: send ticketCollector stop alarm signal to hardware
+    log.info(id + ": sending ticketCollector stop alarm signal to hardware.");
+  } // sendTicketCollectorStopAlarmSignal
+
+
 //
 //
 //  //------------------------------------------------------------

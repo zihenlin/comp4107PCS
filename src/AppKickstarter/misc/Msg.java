@@ -101,5 +101,7 @@ public class Msg {
 
 
       /** TicketCollector alarm  */ TicketCollectorAlarmRequest,
+      /** TicketCollector alarm  */ TicketCollectorStopAlarmRequest,
+
     } // Type
 } // Msg

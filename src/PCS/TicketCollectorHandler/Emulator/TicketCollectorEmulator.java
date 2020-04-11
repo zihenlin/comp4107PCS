@@ -355,6 +355,9 @@ public class TicketCollectorEmulator extends TicketCollectorHandler {
 //      case TimesUp:
 //        handleTimesUp(msg);
 //        break;
+      case TicketCollectorStopAlarmRequest:
+        handleTicketCollectorStopAlarmRequest();
+        break;
 //
 //      case GateEmulatorAutoOpenToggle:
 //        handleGateEmulatorAutoOpenToggle();
@@ -380,6 +383,16 @@ public class TicketCollectorEmulator extends TicketCollectorHandler {
   @Override
   protected void sendTicketCollectorAlarmSignal() {
     logFine("TicketCollector alarm signal received. TicketCollector is alarming");
+//    if (autoOpen) {
+//      logFine("Gate open timer started.");
+//      Timer.setTimer(id, mbox, gateOpenTime, GateOpenTimerID);
+//    }
+  } // sendGateOpenSignal
+
+  //  sendTicketCollectorAlarmSignal
+  @Override
+  protected void sendTicketCollectorStopAlarmSignal() {
+    logFine("TicketCollector stop alarm signal received. TicketCollector stop alarming");
 //    if (autoOpen) {
 //      logFine("Gate open timer started.");
 //      Timer.setTimer(id, mbox, gateOpenTime, GateOpenTimerID);
