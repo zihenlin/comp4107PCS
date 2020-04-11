@@ -265,6 +265,7 @@ import PCS.TicketCollectorHandler.Emulator.TicketCollectorHandler;
 public class TicketCollectorHandler extends AppThread {
 
   protected final MBox pcsCore;
+  protected final MBox ticketCollectorMBox;
   //  private GateHandler.GateStatus gateStatus;
   private TicketCollectorHandler.TicketCollectorStatus ticketCollectorStatus;
 
@@ -275,6 +276,7 @@ public class TicketCollectorHandler extends AppThread {
   public TicketCollectorHandler(String id, AppKickstarter appKickstarter) {
     super(id, appKickstarter);
     pcsCore = appKickstarter.getThread("PCSCore").getMBox();
+    ticketCollectorMBox = appKickstarter.getThread("TicketCollectorHandler").getMBox();
 //    gateStatus = GateHandler.GateStatus.GateClosed;
     ticketCollectorStatus = TicketCollectorHandler.TicketCollectorStatus.TicketCollectorNotAlarming;
   } // GateHandler
@@ -378,6 +380,8 @@ public class TicketCollectorHandler extends AppThread {
   //handleTicketInValidNegativeAck
   protected final void handleTicketInValidNegativeAck() {
     log.info(id + ": ticket invalid negative ack received");
+    log.info(id + ": send ticket collector alarm request");
+    ticketCollectorMBox.send(new Msg(id, null, Msg.Type.TicketCollectorAlarmRequest, "TicketCollectorAlarmReq"));
   } // handleTicketInValidNegativeAck
 
 //
