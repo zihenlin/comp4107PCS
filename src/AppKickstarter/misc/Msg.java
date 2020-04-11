@@ -98,5 +98,8 @@ public class Msg {
 
     /** Toggling Sensor */	SensorSignal,
     /** Toggling Sensor Emulator AutoPoll */ SensorEmulatorAutoPollToggle,
+
+
+      /** TicketCollector alarm  */ TicketCollectorAlarmRequest,
     } // Type
 } // Msg
